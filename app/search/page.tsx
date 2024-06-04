@@ -26,7 +26,7 @@ export default function SearchResults() {
         </div>
         {/* <div className="flex items-center gap-5">Hi!</div> */}
         <ToolCardSection />
-        {searchData && <pre>{JSON.stringify(searchData, null, 2)}</pre>}
+        {/* {searchData && <pre>{JSON.stringify(searchData, null, 2)}</pre>} */}
       </div>
     </>
   );

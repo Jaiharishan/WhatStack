@@ -13,7 +13,6 @@ import Link from "next/link";
 export default function NavBar() {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
-  const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
     <div className="app w-full">
@@ -38,13 +37,10 @@ export default function NavBar() {
                   Home
                 </Link>
                 <Link href="#" className="dark:text-white text-black">
-                  Benefits
+                  Github
                 </Link>
                 <Link href="#" className="dark:text-white text-black">
-                  Our Classes
-                </Link>
-                <Link href="#" className="dark:text-white text-black">
-                  Contact Us
+                  Sponsor
                 </Link>
               </div>
             </div>
@@ -60,9 +56,11 @@ export default function NavBar() {
                   />
                 </div>
                 <div>
-                  <button className="rounded-full border-solid border-2 dark:border-gray-600 border-gray-300 py-2 px-4 dark:text-white text-black">
-                    Sign In
-                  </button>
+                  <Link href="/login">
+                    <button className="rounded-full border-solid border-2 dark:border-gray-600 border-gray-300 py-2 px-4 dark:text-white text-black">
+                      Sign In
+                    </button>
+                  </Link>
                 </div>
               </div>
               {/* Mobile navigation toggle */}
@@ -83,16 +81,13 @@ export default function NavBar() {
           <div className="px-8">
             <div className="flex flex-col items-center w-full gap-8 font-bold tracking-wider text-black">
               <a href="#" className="my-2 text-xl font-semibold">
-                Features
+                Home
               </a>
               <a href="#" className="my-2 text-xl font-semibold">
-                Pricing
+                Github
               </a>
               <a href="#" className="my-2 text-xl font-semibold">
-                Download
-              </a>
-              <a href="#" className="my-2 text-xl font-semibold">
-                Classic
+                Sponsor
               </a>
             </div>
           </div>

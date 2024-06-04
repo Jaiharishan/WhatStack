@@ -15,8 +15,8 @@ export default async function Index() {
   return (
     <>
       <NavBar />
-      <div className="flex-1 w-3/4 lg:w-1/2 flex flex-col mt-10 gap-16 items-center">
-        <div className="font-bold text-8xl dark:text-white text-black">
+      <div className="flex-1 w-3/4 lg:w-1/2 flex flex-col mt-10 gap-12 items-center">
+        <div className="text-8xl font-extrabold dark:text-white text-black">
           WhatStack
         </div>
         <div className="text-xl dark:text-white text-black">
