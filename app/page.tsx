@@ -1,24 +1,30 @@
+import SearchBar from "@/components/SearchBar";
 import { createClient } from "@/utils/supabase/server";
+import NavBar from "@/components/NavBar";
+import BadgeButton from "@/components/BadgeButton";
+import TagsSection from "@/components/TagsSection";
 
-import Header from "@/components/Header";
-
+/**
+ * The main index page of the application.
+ *
+ * @return {Promise<JSX.Element>} The rendered index page.
+ */
 export default async function Index() {
-  const canInitSupabaseClient = () => {
-    // This function is just for the interactive tutorial.
-    // Feel free to remove it once you have Supabase connected.
-    try {
-      createClient();
-      return true;
-    } catch (e) {
-      return false;
-    }
-  };
-
-  const isSupabaseConnected = canInitSupabaseClient();
+  const supabase = createClient();
 
   return (
-    <div className="flex-1 w-full flex flex-col gap-20 items-center">
-      <div className="text-3xl font-bold">Hello WhatStack</div>
-    </div>
+    <>
+      <NavBar />
+      <div className="flex-1 w-3/4 lg:w-1/2 flex flex-col mt-10 gap-16 items-center">
+        <div className="font-bold text-8xl dark:text-white text-black">
+          WhatStack
+        </div>
+        <div className="text-xl dark:text-white text-black">
+          A goto application to find the tools that is right for you
+        </div>
+        <SearchBar />
+        <TagsSection />
+      </div>
+    </>
   );
 }

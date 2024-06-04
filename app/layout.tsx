@@ -1,5 +1,6 @@
 import { GeistSans } from "geist/font/sans";
 import "./globals.css";
+import { Providers } from "@/providers/providers";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -8,7 +9,7 @@ const defaultUrl = process.env.VERCEL_URL
 export const metadata = {
   metadataBase: new URL(defaultUrl),
   title: "WhatStack",
-  description: "The goto place to find your right tech stack",
+  description: "A goto place to find the stack that suits you.",
 };
 
 export default function RootLayout({
@@ -18,10 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={GeistSans.className}>
-      <body className="bg-background text-foreground">
-        <main className="min-h-screen flex flex-col items-center">
-          {children}
-        </main>
+      <body>
+        <Providers>
+          <main className="min-h-screen flex flex-col items-center dark:bg-black bg-white text-foreground">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   );
