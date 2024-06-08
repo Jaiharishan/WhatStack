@@ -1,7 +1,7 @@
 import React from "react";
 import { IBadgeButton } from "@/interfaces/IBadgeButton";
 
-const BadgeButton = ({ color, text }: IBadgeButton) => {
+const BadgeButton = ({ color, text }: IBadgeButton): JSX.Element => {
   return (
     <span
       className={

@@ -10,7 +10,7 @@ export default function Login({
   searchParams,
 }: {
   searchParams: { message: string };
-}) {
+}): JSX.Element {
   const supabase = createClient();
 
   const signIn = async (formData: FormData) => {

@@ -4,7 +4,7 @@ import { handleSignOut } from "@/actions/handleSignOut";
 import { useContext } from "react";
 import { UserContext } from "@/contexts/UserContext";
 
-export default function AuthButton(isUserLoggedIn: any) {
+export default function AuthButton(isUserLoggedIn: any): JSX.Element {
   const [user, setUser] = useContext(UserContext);
   return (
     <>

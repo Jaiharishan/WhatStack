@@ -9,7 +9,7 @@ import { UserContext } from "@/contexts/UserContext";
 
 const testData = [{ name: "React", link: "http", categories: ["a", "b", "c"] }];
 
-export default function SearchResults() {
+export default function SearchResults(): JSX.Element {
   const [user, setUser] = useContext(UserContext);
   return (
     <>

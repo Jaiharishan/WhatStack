@@ -11,7 +11,13 @@ import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
 import { createClient } from "@/utils/supabase/client";
 
-const ToolCard = async ({ name, url, image_uri, likes, categories }: ITool) => {
+const ToolCard = async ({
+  name,
+  url,
+  image_uri,
+  likes,
+  categories,
+}: ITool): Promise<JSX.Element> => {
   const [isClicked, setIsClicked] = useState(false);
   const [user, setUser] = useContext(UserContext);
 

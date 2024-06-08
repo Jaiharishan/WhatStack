@@ -6,18 +6,21 @@ import ThemeButton from "./ThemeButton";
 import Link from "next/link";
 import { UserContext } from "@/contexts/UserContext";
 import AuthButton from "./AuthButton";
+import { getUser } from "@/actions/getUser";
 
-export default function NavBar(userData: any): JSX.Element {
+export default function NavBar(userData: any) {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
-  const [user, setUser] = useContext(UserContext);
+  // const [user, setUser] = useContext(UserContext);
+
+  const user = getUser();
 
   // useEffect(() => {
   //   setUser(userData);
   // });
 
   // console.log("user", user);
-  const isUserLoggedIn: boolean = user ? true : false;
+  const isUserLoggedIn: boolean = true;
 
   return (
     <div className="app w-full">

@@ -8,7 +8,7 @@ import TagsSection from "@/components/TagsSection";
  *
  * @return {Promise<JSX.Element>} The rendered index page.
  */
-export default async function Index() {
+export default async function Index(): Promise<JSX.Element> {
   const supabase = createClient();
   const {
     data: { user },

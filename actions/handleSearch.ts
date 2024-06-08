@@ -7,7 +7,7 @@ const handleInput = (keyword: string) => {
   return keyword.split(" ");
 };
 
-export const handleSearch = async (formData: FormData) => {
+export const handleSearch = async (formData: FormData): Promise<any> => {
   const supabase = createClient();
   const keyword = formData.get("input") as string;
 

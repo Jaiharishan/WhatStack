@@ -31,7 +31,7 @@ const TagsArray = [
     color: "green",
   },
 ];
-const TagsSection = () => {
+const TagsSection = (): JSX.Element => {
   return (
     <div className="flex items-center justify-between w-full">
       {TagsArray.map(({ name, color }, index) => {

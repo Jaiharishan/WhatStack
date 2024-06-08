@@ -6,7 +6,7 @@ import ToolCard from "./ToolCard";
 import { ITool } from "../interfaces/ITool";
 import { ISearchDataContext } from "../interfaces/ISearchDataContext";
 
-const ToolCardSection = () => {
+const ToolCardSection = (): JSX.Element => {
   const [searchData, setSearchData] =
     useContext<ISearchDataContext>(SearchDataContext);
 

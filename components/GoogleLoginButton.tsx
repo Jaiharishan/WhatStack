@@ -3,7 +3,7 @@ import React from "react";
 import loginWithGoogle from "../actions/loginWithGoogle";
 import { SubmitButton } from "../app/login/submit-button";
 
-const GoogleLoginButton = () => {
+const GoogleLoginButton = (): JSX.Element => {
   return (
     <SubmitButton
       onClick={async () => {
