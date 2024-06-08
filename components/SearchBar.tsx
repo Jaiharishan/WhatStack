@@ -26,7 +26,7 @@ export default function SearchBar(): JSX.Element {
         }}
       >
         <label
-          className="mx-auto relative bg-white min-w-sm w-full flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
+          className="mx-auto relative bg-white min-w-sm w-full flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl dark:shadow-none"
           htmlFor="search-bar"
         >
           <input

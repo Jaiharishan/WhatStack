@@ -1,27 +1,30 @@
 "use client";
-import { useState } from "react";
-import {
-  PaperAirplaneIcon,
-  MoonIcon,
-  SunIcon,
-  Bars3Icon,
-} from "@heroicons/react/24/outline";
+import { useContext, useEffect, useState } from "react";
+import { PaperAirplaneIcon, Bars3Icon } from "@heroicons/react/24/outline";
 import { useTheme } from "next-themes";
 import ThemeButton from "./ThemeButton";
 import Link from "next/link";
+import { UserContext } from "@/contexts/UserContext";
+import AuthButton from "./AuthButton";
 
-export default function NavBar() {
+export default function NavBar(userData: any): JSX.Element {
   const [toggleMenu, setToggleMenu] = useState(false);
   const { systemTheme, theme, setTheme } = useTheme();
+  const [user, setUser] = useContext(UserContext);
+
+  // useEffect(() => {
+  //   setUser(userData);
+  // });
+
+  // console.log("user", user);
+  const isUserLoggedIn: boolean = user ? true : false;
 
   return (
     <div className="app w-full">
       <nav>
         <div className="w-full mx-auto">
           <div className="flex mx-auto justify-between w-5/6">
-            {/* Primary menu and logo */}
             <div className="flex items-center gap-16 my-8">
-              {/* logo */}
               <div>
                 <Link
                   href="/"
@@ -55,13 +58,7 @@ export default function NavBar() {
                     }}
                   />
                 </div>
-                <div>
-                  <Link href="/login">
-                    <button className="rounded-full border-solid border-2 dark:border-gray-600 border-gray-300 py-2 px-4 dark:text-white text-black">
-                      Sign In
-                    </button>
-                  </Link>
-                </div>
+                <AuthButton isUserLoggedIn={isUserLoggedIn} />
               </div>
               {/* Mobile navigation toggle */}
               <div className="lg:hidden flex items-center">

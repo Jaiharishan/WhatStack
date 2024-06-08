@@ -9,6 +9,9 @@ type ITools = {
 
 export default async function Page() {
   const supabase = createClient();
-  const { data } = await supabase.from("Tools").select("*");
+  const { data } = await supabase
+    .from("Tools")
+    .select("*")
+    .or('name.ilike.frontend, categories.cs.{"Frontend"}');
   return <pre>{JSON.stringify(data, null, 2)}</pre>;
 }

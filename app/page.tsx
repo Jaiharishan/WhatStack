@@ -1,7 +1,6 @@
 import SearchBar from "@/components/SearchBar";
 import { createClient } from "@/utils/supabase/server";
 import NavBar from "@/components/NavBar";
-import BadgeButton from "@/components/BadgeButton";
 import TagsSection from "@/components/TagsSection";
 
 /**
@@ -11,16 +10,23 @@ import TagsSection from "@/components/TagsSection";
  */
 export default async function Index() {
   const supabase = createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  // if (user) {
+  //   console.log("data", user);
+  // }
 
   return (
     <>
-      <NavBar />
+      <NavBar userData={user} />
       <div className="flex-1 w-3/4 lg:w-1/2 flex flex-col mt-10 gap-12 items-center">
         <div className="text-8xl font-extrabold dark:text-white text-black">
           WhatStack
         </div>
         <div className="text-xl dark:text-white text-black">
-          A goto application to find the tools that is right for you
+          A goto application to find the tools that is right for you{" "}
+          {user?.email}
         </div>
         <SearchBar />
         <TagsSection />

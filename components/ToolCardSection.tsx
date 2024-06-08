@@ -16,7 +16,9 @@ const ToolCardSection = () => {
         return (
           <ToolCard
             name={T.name}
-            url={T.link}
+            url={T.url}
+            image_uri={T.image_uri}
+            likes={T.likes}
             categories={T.categories}
             key={index}
           />

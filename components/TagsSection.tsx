@@ -35,7 +35,7 @@ const TagsSection = () => {
   return (
     <div className="flex items-center justify-between w-full">
       {TagsArray.map(({ name, color }, index) => {
-        return <BadgeButton key={index} color={color} text={name} />;
+        return <BadgeButton key={index} color={color} text={"# " + name} />;
       })}
     </div>
   );
