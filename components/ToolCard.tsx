@@ -13,14 +13,7 @@ import { createClient } from "@/utils/supabase/client";
 
 const ToolCard = async ({ name, url, image_uri, likes, categories }: ITool) => {
   const [isClicked, setIsClicked] = useState(false);
-  const supabase = createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  useEffect(() => {
-    console.log("Tool card", user);
-  });
+  const [user, setUser] = useContext(UserContext);
 
   return (
     <div className="rounded-lg w-64 overflow-hidden shadow-lg dark:shadow-none dark:border-2 dark:border-gray-800">
