@@ -1,11 +1,12 @@
 "use client";
 import Link from "next/link";
 import { handleSignOut } from "@/actions/handleSignOut";
-import { useContext } from "react";
-import { UserContext } from "@/contexts/UserContext";
 
-export default function AuthButton(isUserLoggedIn: any): JSX.Element {
-  const [user, setUser] = useContext(UserContext);
+export default function AuthButton({
+  isUserLoggedIn,
+}: {
+  isUserLoggedIn: boolean;
+}): JSX.Element {
   return (
     <>
       {isUserLoggedIn ? (
@@ -13,10 +14,7 @@ export default function AuthButton(isUserLoggedIn: any): JSX.Element {
           {/* Hey, {user.email}! */}
           <form
             action={async () => {
-              const res = await handleSignOut();
-              if (res) {
-                setUser(null);
-              }
+              await handleSignOut();
             }}
           >
             <button

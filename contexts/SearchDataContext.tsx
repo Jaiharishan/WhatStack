@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { ISearchDataContext } from "@/interfaces/ISearchDataContext";
 
 // const dummy: ISearchDataContext = [[], null]
-export const SearchDataContext = createContext<any>([]);
+export const SearchDataContext = createContext<ISearchDataContext | null>(null);
 
 export function SearchDataContextProvider({
   children,

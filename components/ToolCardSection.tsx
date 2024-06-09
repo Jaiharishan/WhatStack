@@ -15,6 +15,7 @@ const ToolCardSection = (): JSX.Element => {
       {searchData?.map((T, index) => {
         return (
           <ToolCard
+            id={T.id}
             name={T.name}
             url={T.url}
             image_uri={T.image_uri}

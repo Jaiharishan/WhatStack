@@ -9,15 +9,16 @@ import BadgeButton from "./BadgeButton";
 import { ITool } from "@/interfaces/ITool";
 import Image from "next/image";
 import { UserContext } from "@/contexts/UserContext";
-import { createClient } from "@/utils/supabase/client";
+import { incrementLikes } from "@/actions/incrementLikes";
 
-const ToolCard = async ({
+const ToolCard = ({
+  id,
   name,
   url,
   image_uri,
   likes,
   categories,
-}: ITool): Promise<JSX.Element> => {
+}: ITool): JSX.Element => {
   const [isClicked, setIsClicked] = useState(false);
   const [user, setUser] = useContext(UserContext);
 
@@ -27,7 +28,6 @@ const ToolCard = async ({
       <div className="px-4 py-4">
         <div className="font-bold text-2xl text-black dark:text-white">
           {name}
-          {/* React */}
         </div>
       </div>
       <div className="flex items-center px-4 pb-2 gap-2 flex-wrap">
@@ -39,11 +39,18 @@ const ToolCard = async ({
       </div>
       <div className="flex items-center justify-between px-4 my-2">
         <div className="flex items-center gap-1">
-          {user ? (
+          {user?.email ? (
             isClicked ? (
               <HeartIconSolid
                 className="w-7 h-7 text-red-500 cursor-pointer"
-                onClick={() => setIsClicked(!isClicked)}
+                onClick={async () => {
+                  console.log("clicked", id);
+                  const res = await incrementLikes(user.id, likes);
+                  setIsClicked(!isClicked);
+                  if (res) {
+                    console.log(res);
+                  }
+                }}
               />
             ) : (
               <HeartIcon
@@ -56,7 +63,7 @@ const ToolCard = async ({
           )}
 
           <p className="text-black dark:text-white font-bold text-sm">
-            {likes}
+            {likes?.length}
           </p>
         </div>
 
