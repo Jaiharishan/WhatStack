@@ -1,6 +1,15 @@
-import React from "react";
+"use client";
 
-const ThemeButton = ({ ToggleFunction }: any): JSX.Element => {
+import React from "react";
+import { useTheme } from "next-themes";
+const ThemeButton = (): JSX.Element => {
+  const { systemTheme, theme, setTheme } = useTheme();
+
+  const ToggleFunction = () => {
+    console.log("btn clicked", theme);
+    theme == "dark" ? setTheme("light") : setTheme("dark");
+  };
+
   return (
     <div className="h-10 w-10 flex justify-center items-center">
       <button onClick={ToggleFunction} className="h-12 w-12 rounded-md p-2">

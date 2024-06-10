@@ -1,26 +1,12 @@
-"use client";
 import { useContext, useEffect, useState } from "react";
 import { PaperAirplaneIcon, Bars3Icon } from "@heroicons/react/24/outline";
-import { useTheme } from "next-themes";
 import ThemeButton from "./ThemeButton";
 import Link from "next/link";
-import { UserContext } from "@/contexts/UserContext";
 import AuthButton from "./AuthButton";
 import { getUser } from "@/actions/getUser";
 
-export default function NavBar(userData: any) {
-  const [toggleMenu, setToggleMenu] = useState(false);
-  const { systemTheme, theme, setTheme } = useTheme();
-  // const [user, setUser] = useContext(UserContext);
-
-  const user = getUser();
-
-  // useEffect(() => {
-  //   setUser(userData);
-  // });
-
-  // console.log("user", user);
-  const isUserLoggedIn: boolean = true;
+export default async function NavBar() {
+  const user = await getUser();
 
   return (
     <div className="app w-full">
@@ -54,25 +40,21 @@ export default function NavBar(userData: any) {
             <div className="flex gap-6">
               <div className="flex xs:hidden items-center gap-10">
                 <div className="flex items-center gap-2">
-                  <ThemeButton
-                    ToggleFunction={() => {
-                      console.log("btn clicked", theme);
-                      theme == "dark" ? setTheme("light") : setTheme("dark");
-                    }}
-                  />
+                  <ThemeButton />
+                  <p className="text-black dark:text-white">{user?.email}</p>
                 </div>
-                <AuthButton isUserLoggedIn={isUserLoggedIn} />
+                <AuthButton isUserLoggedIn={true ? user : false} />
               </div>
               {/* Mobile navigation toggle */}
-              <div className="lg:hidden flex items-center">
-                <button onClick={() => setToggleMenu(!toggleMenu)}>
+              {/* <div className="lg:hidden flex items-center">
+                <button onClick={() => !toggleMenu}>
                   <Bars3Icon className="h-6" />
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
-        {/* mobile navigation */}
+        {/* mobile navigation
         <div
           className={`fixed z-40 w-full  bg-gray-100 overflow-hidden flex flex-col lg:hidden gap-12  origin-top duration-700 ${
             !toggleMenu ? "h-0" : "h-full"
@@ -91,7 +73,7 @@ export default function NavBar(userData: any) {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
       </nav>
     </div>
   );

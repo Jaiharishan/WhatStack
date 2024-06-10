@@ -1,9 +1,6 @@
 "use client";
-import { useFormStatus } from "react-dom";
-import { type ComponentProps } from "react";
 import { handleSearch } from "@/actions/handleSearch";
-import { useState } from "react";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import { SearchDataContext } from "@/contexts/SearchDataContext";
 
