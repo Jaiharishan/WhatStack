@@ -16,8 +16,10 @@ export const handleSearch = async (formData: FormData): Promise<any> => {
   const { data, error } = await supabase
     .from("Tools")
     .select("*")
-    .contains("categories", [`${keyword}`])
-    .or(`name.ilike.${keyword}, categories.cs.{${keyword}}`);
+    .textSearch("description", keyword, {
+      type: "websearch",
+      config: "english",
+    });
 
   if (data) {
     return data;

@@ -15,10 +15,9 @@ export default function SearchBar(): JSX.Element {
         action={async (FormData: FormData) => {
           console.log("clicked");
           const data: any = await handleSearch(FormData);
-          const keyword = FormData.get("input") as string;
           if (data) {
             setSearchData(data);
-            return router.push(`/search/${keyword}`);
+            return router.push(`/search`);
           }
         }}
       >

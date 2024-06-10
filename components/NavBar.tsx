@@ -25,13 +25,19 @@ export default async function NavBar() {
               </div>
               {/* primary */}
               <div className="hidden lg:flex gap-8 ">
-                <Link href="#" className="dark:text-white text-black">
+                <Link href="/" className="dark:text-white text-black">
                   Home
                 </Link>
-                <Link href="#" className="dark:text-white text-black">
+                <Link
+                  href="https://github.com/Jaiharishan/WhatStack"
+                  className="dark:text-white text-black"
+                >
                   Github
                 </Link>
-                <Link href="#" className="dark:text-white text-black">
+                <Link
+                  href="https://www.buymeacoffee.com/Jaiharishan"
+                  className="dark:text-white text-black"
+                >
                   Sponsor
                 </Link>
               </div>
