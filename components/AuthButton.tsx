@@ -11,7 +11,6 @@ export default function AuthButton({
     <>
       {isUserLoggedIn ? (
         <div className="flex items-center gap-4">
-          {/* Hey, {user.email}! */}
           <form
             action={async () => {
               await handleSignOut();

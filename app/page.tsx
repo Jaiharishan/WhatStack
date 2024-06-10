@@ -2,6 +2,9 @@ import SearchBar from "@/components/SearchBar";
 import { createClient } from "@/utils/supabase/server";
 import NavBar from "@/components/NavBar";
 import TagsSection from "@/components/TagsSection";
+import TopToolsSection from "../components/TopToolsSection";
+import { getUser } from "@/actions/getUser";
+import BuyMeACoffee from "../components/BuyMeACoffee";
 
 /**
  * The main index page of the application.
@@ -11,12 +14,10 @@ import TagsSection from "@/components/TagsSection";
 export default async function Index(): Promise<JSX.Element> {
   const supabase = createClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = await getUser();
 
   if (user) {
-    console.log("user page", user);
+    console.log("user page", user.id);
   } else {
     console.log("user page not logged in");
   }
@@ -30,11 +31,12 @@ export default async function Index(): Promise<JSX.Element> {
         </div>
         <div className="text-xl dark:text-white text-black">
           A goto application to find the tools that is right for you{" "}
-          {/* {user?.email} */}
         </div>
         <SearchBar />
         <TagsSection />
       </div>
+      <TopToolsSection />
+      {/* <BuyMeACoffee /> */}
     </>
   );
 }

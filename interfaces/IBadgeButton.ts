@@ -1,4 +1,4 @@
 export interface IBadgeButton {
-  color: string;
+  style: string;
   text: string;
 }
