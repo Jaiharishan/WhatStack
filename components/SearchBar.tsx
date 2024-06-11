@@ -1,24 +1,16 @@
 "use client";
-import { handleSearch } from "@/actions/handleSearch";
-import { useRouter } from "next/navigation";
-import { useContext } from "react";
-import { SearchDataContext } from "@/contexts/SearchDataContext";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 export default function SearchBar(): JSX.Element {
-  const [searchData, setSearchData] = useContext<any>(SearchDataContext);
   const router = useRouter();
 
   return (
     <>
       <form
         className="animate-in flex flex-col w-full justify-center gap-2 text-foreground"
-        action={async (FormData: FormData) => {
-          console.log("clicked");
-          const data: any = await handleSearch(FormData);
-          if (data) {
-            setSearchData(data);
-            return router.push(`/search`);
-          }
+        action={(FormData: FormData) => {
+          const keyword = FormData.get("input") as string;
+          return router.push(`/search?keyword=${keyword}`);
         }}
       >
         <label

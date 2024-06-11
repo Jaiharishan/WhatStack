@@ -1,29 +1,25 @@
-"use client";
-
-import {
-  ArrowTopRightOnSquareIcon,
-  HeartIcon,
-} from "@heroicons/react/24/outline";
-import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
-import React, { useState, useContext, useEffect } from "react";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
+import React from "react";
 import Link from "next/link";
 import BadgeButton from "./BadgeButton";
 import { ITool } from "@/interfaces/ITool";
 import Image from "next/image";
-import { incrementLikes } from "@/actions/incrementLikes";
+import LikeButton from "./LikeButton";
+import { createClient } from "@/utils/supabase/server";
+import { getUser } from "@/actions/getUser";
 
-const ToolCard = ({
+const ToolCard = async ({
   id,
   name,
   url,
   image_uri,
   likes,
   categories,
-}: ITool): JSX.Element => {
-  const [isClicked, setIsClicked] = useState(false);
+}: ITool): Promise<JSX.Element> => {
+  const user = await getUser();
 
   return (
-    <div className="rounded-lg min-w-64 w-64 overflow-hidden shadow-lg dark:shadow-none dark:border-2 dark:border-gray-800">
+    <div className="rounded-lg min-w-60 w-60 overflow-hidden shadow-lg dark:shadow-none dark:border-2 dark:border-gray-800">
       <Image src={image_uri} alt="Tool Image" width={256} height={256} />
       <div className="px-4 py-4">
         <div className="font-bold text-2xl text-black dark:text-white">
@@ -44,34 +40,7 @@ const ToolCard = ({
         })}
       </div>
       <div className="flex items-center justify-between px-4 my-2">
-        <div className="flex items-center gap-1">
-          {true ? (
-            isClicked ? (
-              <HeartIconSolid
-                className="w-7 h-7 text-red-500 cursor-pointer"
-                onClick={async () => {
-                  console.log("clicked", id);
-                  const res = await incrementLikes(1, likes);
-                  setIsClicked(!isClicked);
-                  if (res) {
-                    console.log(res);
-                  }
-                }}
-              />
-            ) : (
-              <HeartIcon
-                className="w-7 h-7 text-red-500 cursor-pointer"
-                onClick={() => setIsClicked(!isClicked)}
-              />
-            )
-          ) : (
-            <HeartIconSolid className="w-7 h-7 text-gray-500 cursor-pointer" />
-          )}
-
-          <p className="text-black dark:text-white font-bold text-sm">
-            {likes?.length}
-          </p>
-        </div>
+        <LikeButton isUser={true ? user : false} user_id={id} likes={likes} />
 
         <Link href={url} target="_blank">
           <ArrowTopRightOnSquareIcon className="w-8 h-8 text-gray-400 dark:text-gray-600 cursor-pointer" />

@@ -2,9 +2,10 @@ import React from "react";
 import NavBar from "@/components/NavBar";
 import ToolCardSection from "@/components/ToolCardSection";
 
-const testData = [{ name: "React", link: "http", categories: ["a", "b", "c"] }];
+export default function SearchResults(request: any): JSX.Element {
+  const keyword = request.searchParams.keyword;
+  console.log(keyword);
 
-export default function SearchResults(): JSX.Element {
   return (
     <>
       <NavBar />
@@ -13,8 +14,7 @@ export default function SearchResults(): JSX.Element {
           Search Results
         </div>
 
-        <ToolCardSection />
-        {/* {searchData && <pre>{JSON.stringify(searchData, null, 2)}</pre>} */}
+        <ToolCardSection keyword={keyword} />
       </div>
     </>
   );
