@@ -1,4 +1,4 @@
-export interface ITool {
+export default interface ITool {
   id: number;
   name: string;
   url: string;

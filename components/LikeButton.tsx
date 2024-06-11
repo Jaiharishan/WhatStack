@@ -4,13 +4,10 @@ import React, { useState } from "react";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { HeartIcon as HeartIconSolid } from "@heroicons/react/24/solid";
 import { incrementLikes } from "../actions/incrementLikes";
+import  ILikeButton from "@/interfaces/ILikeButton";
 
-interface LikeButtonProps {
-  isUser: boolean;
-  user_id: number;
-  likes: number[];
-}
-const LikeButton = ({ isUser, user_id, likes }: LikeButtonProps) => {
+
+const LikeButton = ({ isUser, user_id, likes }: ILikeButton) => {
   const [isClicked, setIsClicked] = useState(false);
   return (
     <>

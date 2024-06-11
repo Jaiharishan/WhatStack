@@ -1,10 +1,8 @@
 import React from "react";
-import { useContext } from "react";
-import { SearchDataContext } from "../contexts/SearchDataContext";
+
 import ToolCard from "./ToolCard";
-import { ITool } from "../interfaces/ITool";
+import ITool from "../interfaces/ITool";
 import { createClient } from "@/utils/supabase/server";
-import { ISearchDataContext } from "../interfaces/ISearchDataContext";
 
 const ToolCardSection = async ({ keyword }: { keyword: string }) => {
   const supabase = createClient();

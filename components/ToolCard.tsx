@@ -2,7 +2,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import Link from "next/link";
 import BadgeButton from "./BadgeButton";
-import { ITool } from "@/interfaces/ITool";
+import ITool from "@/interfaces/ITool";
 import Image from "next/image";
 import LikeButton from "./LikeButton";
 import { createClient } from "@/utils/supabase/server";

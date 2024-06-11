@@ -1,4 +1,4 @@
-export interface IBadgeButton {
+export default interface IBadgeButton {
   style: string;
   text: string;
 }
