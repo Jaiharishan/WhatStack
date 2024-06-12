@@ -1,7 +1,7 @@
 import React from "react";
 import ToolCard from "./ToolCard";
 import { createClient } from "@/utils/supabase/server";
-import { ITool } from "@/interfaces/ITool";
+import ITool from "@/interfaces/ITool";
 
 const TopToolsSection = async () => {
   const supabase = createClient();
