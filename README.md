@@ -53,9 +53,20 @@ You can also use Docker Containers to run the application.
 
 
 
+
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![whatstack-login](https://github.com/user-attachments/assets/ca2b244f-94eb-4135-94a7-531c53add151)
+
+![whatstack-home-light](https://github.com/user-attachments/assets/ea00a679-8875-4cd6-a89a-0628f31bc892)
+
+![whatstack-home-dark](https://github.com/user-attachments/assets/22e15478-9d47-41e6-bbf3-8ed9d7f959ce)
+
+![whatstack-search](https://github.com/user-attachments/assets/fbef2805-d8fa-492e-9521-46457fab624e)
+
+
+
+
 
 
 ## Appendix
